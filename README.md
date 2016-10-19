@@ -3,7 +3,7 @@
 A very simple Rating Bar for Android (minSdkVersion=16).
 
 ## Demo
-<img src="https://raw.githubusercontent.com/aurelhubert/simpleratingbar/master/demo.gif" width="208" height="368" />
+<img src="https://raw.githubusercontent.com/aurelhubert/simpleratingbar/master/demo.gif" width="335" height="78" />
 
 ## Features
 * Set your default & selected drawable
