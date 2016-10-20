@@ -172,10 +172,13 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 	 */
 	private void init(Context context, AttributeSet attrs) {
 
+		defaultPaint = new Paint(Paint.FILTER_BITMAP_FLAG);
+
 		setOnTouchListener(this);
 		bitmapRectDest = new Rect(0, 0, 0, 0);
 
 		Resources res = getResources();
+
 
 		if (attrs != null) {
 			TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SimpleRatingBar);
@@ -191,7 +194,6 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 			selectedBitmap = BitmapFactory.decodeResource(res, selectedDrawable);
 			bitmapRect = new Rect(0, 0, defaultBitmap.getWidth(), defaultBitmap.getHeight());
 			bitmapRatio = defaultBitmap.getWidth() * 1f / defaultBitmap.getHeight();
-
 			bitmapWidth = drawableWidth != 0 ? drawableWidth : defaultBitmap.getWidth();
 			bitmapHeight = drawableHeight > 0 ? drawableHeight : bitmapWidth * bitmapRatio;
 
