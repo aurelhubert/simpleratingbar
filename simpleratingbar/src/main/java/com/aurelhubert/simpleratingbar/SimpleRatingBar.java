@@ -226,7 +226,7 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 		float touchX = event.getX();
 		for (int i = 0; i < maxRating; i++) {
 			float x = (globalWidth / 2) - (bitmapWidth * maxRating / 2) - 2 * drawablePadding + (bitmapWidth + drawablePadding) * i;
-			if (touchX < (x + bitmapWidth / 2)) {
+			if ((i == 0 && touchX < (x + bitmapWidth / 5)) || touchX < x) {
 				if (currentRating != i) {
 					currentRating = i;
 					if (listener != null) {
@@ -235,7 +235,7 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 					invalidate();
 				}
 				break;
-			} else if (i == maxRating - 1 && touchX > (x + bitmapWidth / 2)){
+			} else if (i == maxRating - 1 && touchX > x ) {
 				if (currentRating != (i + 1)) {
 					currentRating = i + 1;
 					if (listener != null) {
