@@ -122,7 +122,6 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 			bitmapHeight = drawableHeight;
 			bitmapWidth = bitmapHeight / bitmapRatio;
 		} else {
-			bitmapWidth = (globalWidth - drawablePadding * maxRating) / maxRating;
 			bitmapHeight = bitmapWidth * bitmapRatio;
 		}
 
@@ -193,7 +192,7 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 			bitmapRect = new Rect(0, 0, defaultBitmap.getWidth(), defaultBitmap.getHeight());
 			bitmapRatio = defaultBitmap.getWidth() * 1f / defaultBitmap.getHeight();
 
-			bitmapWidth = drawableWidth != 0 ? drawableWidth : (globalWidth - drawablePadding * maxRating) / maxRating;
+			bitmapWidth = drawableWidth != 0 ? drawableWidth : defaultBitmap.getWidth();
 			bitmapHeight = drawableHeight > 0 ? drawableHeight : bitmapWidth * bitmapRatio;
 
 			a.recycle();
@@ -211,7 +210,7 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 			bitmapRect = new Rect(0, 0, defaultBitmap.getWidth(), defaultBitmap.getHeight());
 			bitmapRatio = defaultBitmap.getWidth() * 1f / defaultBitmap.getHeight();
 
-			bitmapWidth = drawableWidth != 0 ? drawableWidth : (globalWidth - drawablePadding * maxRating) / maxRating;
+			bitmapWidth = drawableWidth != 0 ? drawableWidth : defaultBitmap.getWidth();
 			bitmapHeight = drawableHeight > 0 ? drawableHeight : bitmapWidth * bitmapRatio;
 		}
 
@@ -251,6 +250,23 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 	////////////
 	// PUBLIC //
 	////////////
+
+	/**
+	 * Get rating
+	 */
+	public int getRating() {
+		return currentRating;
+	}
+
+	/**
+	 * Set the current rating
+	 */
+	public void setRating(int currentRating) {
+		if (currentRating >= 0 && currentRating <= maxRating) {
+			this.currentRating = currentRating;
+			invalidate();
+		}
+	}
 
 	/**
 	 * Get the listener
