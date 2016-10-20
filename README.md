@@ -16,7 +16,7 @@ A very simple Rating Bar for Android (minSdkVersion=16).
 ### Gradle
 ```groovy
 dependencies {
-    compile 'com.aurelhubert:simpleratingbar:0.1.2'
+    compile 'com.aurelhubert:simpleratingbar:0.1.3'
 }
 ```
 ### XML
