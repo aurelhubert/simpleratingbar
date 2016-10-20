@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 				Log.d(TAG, "onValueChanged: " + value);
 			}
 		});
+		simpleRatingBar.setRating(2);
 
 	}
 
