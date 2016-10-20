@@ -31,10 +31,10 @@
     <com.aurelhubert.simpleratingbar.SimpleRatingBar
         android:id="@+id/simple_rating_bar"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        app:drawableWidth="80dp"
-        app:drawablePadding="12dp"
+        app:drawablePadding="8dp"
+        app:defaultDrawable="@drawable/star_empty"
         app:maxRating="5"
         app:rating="4"/>
 
