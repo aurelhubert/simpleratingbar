@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/aurelhubert/simpleratingbar'
     gitUrl = 'https://github.com/aurelhubert/simpleratingbar.git'
 
-    libraryVersion = '0.1.4'
+    libraryVersion = '0.1.5'
 
     developerId = 'aurelhubert'
     developerName = 'Aurelien Hubert'
@@ -32,7 +32,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 2
-        versionName "0.1.4"
+        versionName "0.1.5"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
