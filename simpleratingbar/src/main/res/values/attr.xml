@@ -9,6 +9,7 @@
         <attr name="drawableWidth" format="dimension" />
         <attr name="drawableHeight" format="dimension" />
         <attr name="drawablePadding" format="dimension" />
+        <attr name="enable" format="boolean" />
     </declare-styleable>
 
 </resources>

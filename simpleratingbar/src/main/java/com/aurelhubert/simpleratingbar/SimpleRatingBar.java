@@ -9,7 +9,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,9 +23,7 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 	private SimpleRatingBarListener listener;
 
 	private int currentRating, maxRating;
-	private
-	@DrawableRes
-	int defaultDrawable, selectedDrawable;
+	private boolean enable = true;
 	private Bitmap defaultBitmap, selectedBitmap;
 	private Paint defaultPaint = new Paint();
 	private Rect bitmapRect;
@@ -178,7 +175,7 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 		bitmapRectDest = new Rect(0, 0, 0, 0);
 
 		Resources res = getResources();
-
+		int defaultDrawable, selectedDrawable;
 
 		if (attrs != null) {
 			TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SimpleRatingBar);
@@ -189,6 +186,7 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 			drawableWidth = a.getDimension(R.styleable.SimpleRatingBar_drawableWidth, 0);
 			drawableHeight = a.getDimension(R.styleable.SimpleRatingBar_drawableHeight, 0);
 			drawablePadding = a.getDimension(R.styleable.SimpleRatingBar_drawablePadding, 0);
+			enable = a.getBoolean(R.styleable.SimpleRatingBar_enable, true);
 
 			defaultBitmap = BitmapFactory.decodeResource(res, defaultDrawable);
 			selectedBitmap = BitmapFactory.decodeResource(res, selectedDrawable);
@@ -223,6 +221,11 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 	 * Manage touch
 	 */
 	private void manageTouch(MotionEvent event) {
+
+		if (!enable) {
+			return;
+		}
+
 		float touchX = event.getX();
 		for (int i = 0; i < maxRating; i++) {
 			float x = (globalWidth / 2) - (bitmapWidth * maxRating / 2) - 2 * drawablePadding + (bitmapWidth + drawablePadding) * i;
@@ -268,6 +271,20 @@ public class SimpleRatingBar extends View implements View.OnTouchListener {
 			this.currentRating = currentRating;
 			invalidate();
 		}
+	}
+
+	/**
+	 * Return if the rating bar is enable
+	 */
+	public boolean isEnable() {
+		return enable;
+	}
+
+	/**
+	 * Set the state of the rating bar
+	 */
+	public void setEnable(boolean enable) {
+		this.enable = enable;
 	}
 
 	/**
