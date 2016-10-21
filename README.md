@@ -16,7 +16,7 @@ A very simple Rating Bar for Android (minSdkVersion=16).
 ### Gradle
 ```groovy
 dependencies {
-    compile 'com.aurelhubert:simpleratingbar:0.1.4'
+    compile 'com.aurelhubert:simpleratingbar:0.1.5'
 }
 ```
 ### XML
@@ -33,7 +33,11 @@ dependencies {
 
 ### Activity/Fragment
 ```java
-...
+
+simpleRatingBar.setRating(3);
+
+simpleRatingBar.setEnable(false);
+
 simpleRatingBar.setListener(new SimpleRatingBar.SimpleRatingBarListener() {
 	@Override
 	public void onValueChanged(int value) {
